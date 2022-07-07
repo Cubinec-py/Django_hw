@@ -9,7 +9,7 @@ class Command(BaseCommand):
     help = 'Create username with email and password'
 
     def add_arguments(self, parser):
-        parser.add_argument('amount', choices=range(1, 11), type=int)
+        parser.add_argument('amount', choices=range(1, 11), type=int, help='Choose amount of users to create')
 
     def handle(self, *args, **options):
         fake_method = Faker()

@@ -3,10 +3,10 @@ from django.contrib.auth.models import User
 
 
 class Command(BaseCommand):
-    help = 'Delete username by id'
+    help = 'Delete user by id'
 
     def add_arguments(self, parser):
-        parser.add_argument('user_id', nargs='+', type=int)
+        parser.add_argument('user_id', nargs='+', type=int, help='Choose user id')
 
     def handle(self, *args, **options):
         users_id = options['user_id']
@@ -15,4 +15,4 @@ class Command(BaseCommand):
             self.stdout.write(self.style.ERROR('Superuser cannot be deleted!'))
         else:
             deleter = User.objects.filter(id__in=users_id).delete()
-            self.stdout.write(self.style.SUCCESS(f'{deleter} users has been deleted'))
+            self.stdout.write(self.style.SUCCESS(f'{deleter[0]} users has been deleted'))
