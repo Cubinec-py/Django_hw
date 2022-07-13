@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Triangle</title>
+</head>
+<body>
+<h1>Расчёт гипотенузы</h1>
+
+{% if hypotenuse %}
+    <h2>{{ hypotenuse }}</h2>
+{% endif %}
+
+<form action="{% url 'triangle:triangle_view'  %}" method="get">
+    {{ get_form.as_p }}
+    <input type="submit" name="submit" value="OK">
+    <input type="button" value="Сброс" onClick='location.href="{% url 'triangle:triangle_view'  %}"'>
+</form>
+
+</body>
+</html>
