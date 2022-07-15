@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Person</title>
+</head>
+<body>
+<h1>Форма создания анкеты</h1>
+
+<form action="{% url 'triangle:person_view'  %}" method="post">
+    {% csrf_token %}
+    {{ person_form.as_p }}
+    <input type="submit" name="submit" value="OK">
+    <input type="button" value="Назад" onClick='location.href="{% url 'triangle:index'  %}"'>
+</form>
+
+</body>
+</html>
