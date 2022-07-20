@@ -50,3 +50,12 @@ class Client(models.Model):
 
     def __str__(self):
         return str(self.client_name)
+
+
+class Logs(models.Model):
+    path = models.CharField(max_length=200)
+    method = models.CharField(max_length=50, choices=(('POST', 'POST'), ('GET', 'GET')))
+    timestamp = models.DateField(auto_now_add=True)
+
+    def __str__(self):
+        return str(self.path)
