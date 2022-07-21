@@ -1,13 +1,12 @@
 from triangle.models import Logs
-from django.utils.deprecation import MiddlewareMixin
 
 
-class LogMiddleware(MiddlewareMixin):
+class LogMiddleware:
 
-    def _init_(self, get_response):
+    def __init__(self, get_response):
         self.get_response = get_response
 
-    def _call_(self, request):
+    def __call__(self, request):
         response = self.get_response(request)
         return response
 
